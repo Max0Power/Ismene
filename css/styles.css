@@ -1,40 +1,55 @@
 /*
  * @creator Jussi Parviainen
- * @Version 01.08.2019
+ * @created 01.08.2019
+ * @Updated 03.08.2019 (Single image view on gallery and media links)
  * Copyright 2019, Sivuguru
  * Styles for Ismene website
  */
 
+html, body {
+	background-color: black;
+	width: 100%;
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+} 
+ 
 h1 {
-  color: white;
-  text-align: center;
-  padding: 0px;
-  margin: 0px;
-  margin-top: 0.5em;
-  font-size: 5vw;
-  font-family: courier;  
-  /*
-  font-family:comic sans ms;
-  */
+	color: white;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 0.5em;
+	font-size: 5vw;
+	font-family: courier;  
 }
 
 p, small {
 	color: white;
 }
 
-body {
-	background-color: black;
+a {
+    text-decoration: none;
+}
+
+footer {
+	margin-top: 40px;
+}
+
+img {
 	width: 100%;
 	height: auto;
-	padding: 0px;
-	margin: 0px;
+}
+
+.centerText {
+	text-align: center;
 }
 
 /* Button's div with size */
 .buttonDiv {
 	margin:auto;
-	width: 33.75vw; /* (kuva 1080x384) eli width = 2.8125 * height */
-	height: 12vw;  /* height = width / 2.8125, Pidetaan kuvan mukainen skaala! */
+	width: 33.75vw; /* (Img size: 1080x384) -> width = 2.8125 * height */
+	height: 12vw;  /* height = width / 2.8125, Let's use original image scale! */
 	margin-bottom: 0px;
 	margin-top: 10px;
 }
@@ -79,52 +94,146 @@ body {
 /* IMAGE GALLERY STYLES | IMAGE GALLERY STYLES | IMAGE GALLERY STYLES | IMAGE GALLERY STYLES | IMAGE GALLERY STYLES */
 
 div.gallery {
-  width: 100%;
-  height: auto;
-  margin: 0px;
-  padding: 0px;
-  border: 2px solid #777;
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+	border: 2px solid #fff;
+	cursor: pointer;
 }
 
 div.gallery:hover {
-  border: 2px solid #ccc;
+	border: 2px solid #808080;
 }
 
-div.gallery img {
-  width: 100%;
-  height: auto;
-  margin: 0px;
-  padding: 0px;
-  display: block;
-}
-
-* {
-  box-sizing: border-box;
+.galleryImg {
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+	display: block;
 }
 
 /* Screen size large (3 items horizontally) */
 .responsive {
-  padding: 4px 4px;
-  float: left;
-  width: 33.33333%;
+	padding: 4px 4px;
+	float: left;
+	width: 33.33333%;
+	box-sizing: border-box;
 }
 
 /* Screen size medium (2 items horizontally) */
 @media only screen and (max-width: 1280px) {
-  .responsive {
-	width: 50%;
-  }
+	.responsive {
+		width: 50%;
+		box-sizing: border-box;
+	}
 }
 
 /* Screen size small (1 item horizontally)*/
-@media only screen and (max-width: 720px) {
-  .responsive {
-    width: 100%;
-  }
+@media only screen and (max-width: 768px) {
+	.responsive {
+		width: 100%;
+		box-sizing: border-box;
+	}
 }
 
 .clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* MODAL IMAGE VIEW | MODAL IMAGE VIEW | MODAL IMAGE VIEW | MODAL IMAGE VIEW | MODAL IMAGE VIEW | MODAL IMAGE VIEW */
+
+/* The Modal "Single image view" */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 50px; /* Location of the box */
+	left: 0px;
+	top: 0px;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+	box-sizing: border-box; /* makes sure that zoom works correctly */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 1980px;
+	height: auto;
+	border: 5px solid #fff;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content {
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+	from {transform:scale(0)}
+	to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #fff;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+	color: #808080;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 768px){
+	.modal-content {
+		width: 100%;
+	}
+}
+
+/* SOCIAL MEDIA ICONS | SOCIAL MEDIA ICONS | SOCIAL MEDIA ICONS | SOCIAL MEDIA ICONS | SOCIAL MEDIA ICONS | */
+
+/* parent element for links */
+.mediaLinksDiv {
+	display: inline-block;
+}
+
+/* Media link styling*/
+a.mediaLink {
+	display: inline-block;
+	margin: 25px 2px;
+}
+
+a.mediaLink-instagram { /* Instagram icon requiers clear space "one half of the glyph’s size on all sides" */
+	display: inline-block;
+	margin: 25px;
+}
+
+/* Icon images */
+.mediaImg {
+	width: 50px;
+	height: 50px;
+}
+
+.mediaImg:hover {
+	opacity: 0.7;
 }
