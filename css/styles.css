@@ -255,7 +255,7 @@ a.mediaLink-discord { /* Uses currently bigger icon */
 /* Discord image (Bigger icon) */
 .discordImg {
 	width: 200px;
-	height: auto;
+	height: 68px;
 }
 
 .discordImg:hover {
