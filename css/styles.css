@@ -237,6 +237,11 @@ a.mediaLink-instagram { /* Instagram icon requiers clear space "one half of the 
 	margin: 25px;
 }
 
+a.mediaLink-discord { /* Uses currently bigger icon */
+	display: inline-block;
+	margin: 0px;
+}
+
 /* Icon images */
 .mediaImg {
 	width: 50px;
@@ -245,4 +250,14 @@ a.mediaLink-instagram { /* Instagram icon requiers clear space "one half of the 
 
 .mediaImg:hover {
 	opacity: 0.7;
+}
+
+/* Discord image (Bigger icon) */
+.discordImg {
+	width: 200px;
+	height: auto;
+}
+
+.discordImg:hover {
+	opacity: 0.7
 }
